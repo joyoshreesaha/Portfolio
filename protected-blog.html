@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Blog | Joyoshree Saha Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-content {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .post-content p {
+            margin-bottom: 1rem;
+        }
+
+        .post-content code {
+            background-color: var(--light-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--primary-color);
+        }
+
+        .post-content pre {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .exclusive-badge {
+            background: linear-gradient(135deg, var(--accent-color), #c0392b);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="joyoshreesahaPortfolio.jpeg" alt="Joyoshree Saha" width="150" height="150"
+            style="border-radius: 80%;">
+        <h1>Joyoshree Saha</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="protected-blog" class="active">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-container">
+            <a href="profile.html" class="back-link">← Back to Profile</a>
+            
+            <div class="blog-header">
+                <h1>🔒 Exclusive Blog Posts</h1>
+                <p>Welcome to my private blog! Here I share in-depth insights, personal experiences, and detailed tutorials that are only available to registered users.</p>
+            </div>
+
+            <div id="welcomeUser" class="content-card" style="text-align: center; margin-bottom: 2rem;">
+                <h3>Welcome back, <span id="userName">Member</span>! 👋</h3>
+                <p>Thank you for being part of my exclusive community. Enjoy these special posts!</p>
+            </div>
+
+            <article class="blog-post">
+                <div class="exclusive-badge">🌟 EXCLUSIVE</div>
+                <div class="post-meta">Published on August 5, 2025 • 5 min read</div>
+                <h2 class="post-title">My Journey in Computer Science: Lessons from Year 3</h2>
+                <div class="post-content">
+                    <p>As I'm now in my third year of Computer Science and Engineering at Jahangirnagar University, I wanted to share some personal insights and experiences that have shaped my learning journey so far.</p>
+                    
+                    <h3>Key Learnings This Year</h3>
+                    <p>This year has been particularly challenging and rewarding. Here are the major areas where I've grown:</p>
+                    
+                    <ul>
+                        <li><strong>Data Structures & Algorithms:</strong> Moving beyond basic concepts to complex problem-solving</li>
+                        <li><strong>Web Development:</strong> Building real projects like this portfolio with authentication</li>
+                        <li><strong>Database Management:</strong> Understanding relational databases and SQL optimization</li>
+                        <li><strong>Software Engineering:</strong> Learning about design patterns and system architecture</li>
+                    </ul>
+                    
+                    <h3>Challenges I Faced</h3>
+                    <p>The transition from theoretical knowledge to practical implementation wasn't always smooth. Here's what I learned from my struggles:</p>
+                    
+                    <blockquote style="border-left: 4px solid var(--secondary-color); padding-left: 1rem; margin: 1rem 0; font-style: italic; color: #666;">
+                        "The gap between knowing how something works and actually building it is where real learning happens."
+                    </blockquote>
+                    
+                    <p>One particular challenge was working on the Java Chat Application project. Implementing real-time communication and ensuring security taught me valuable lessons about network programming.</p>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <div class="exclusive-badge">💡 TUTORIAL</div>
+                <div class="post-meta">Published on August 3, 2025 • 8 min read</div>
+                <h2 class="post-title">Building Your First Portfolio with Authentication</h2>
+                <div class="post-content">
+                    <p>In this exclusive tutorial, I'll walk you through the process of building a portfolio website with user authentication, just like the one you're currently viewing!</p>
+                    
+                    <h3>Tech Stack Overview</h3>
+                    <p>For this project, I chose the following technologies:</p>
+                    
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, CSS3, Vanilla JavaScript</li>
+                        <li><strong>Backend:</strong> Node.js with Express.js</li>
+                        <li><strong>Database:</strong> SQLite for simplicity</li>
+                        <li><strong>Authentication:</strong> bcryptjs for password hashing</li>
+                        <li><strong>File Uploads:</strong> Multer for profile pictures</li>
+                    </ul>
+                    
+                    <h3>Key Implementation Details</h3>
+                    <p>The most interesting part was implementing secure session management:</p>
+                    
+                    <pre><code>// Session middleware configuration
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        secure: false, // Set to true in production
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
+}));</code></pre>
+                    
+                    <p>This ensures that user sessions are properly managed and secure.</p>
+                    
+                    <h3>Security Considerations</h3>
+                    <p>When building authentication systems, security is paramount:</p>
+                    
+                    <ul>
+                        <li>Always hash passwords using bcrypt</li>
+                        <li>Implement proper input validation</li>
+                        <li>Use HTTPS in production</li>
+                        <li>Implement rate limiting for login attempts</li>
+                        <li>Validate file uploads properly</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <div class="exclusive-badge">🎯 PERSONAL</div>
+                <div class="post-meta">Published on August 1, 2025 • 3 min read</div>
+                <h2 class="post-title">Why I Love Poetry Recitation and How It Helps My Coding</h2>
+                <div class="post-content">
+                    <p>You might wonder what poetry recitation has to do with programming. As someone who enjoys both, I've discovered some surprising connections!</p>
+                    
+                    <h3>Pattern Recognition</h3>
+                    <p>Poetry teaches you to recognize patterns - rhythm, meter, rhyme schemes. Similarly, in programming, pattern recognition is crucial for:</p>
+                    
+                    <ul>
+                        <li>Identifying code patterns and design principles</li>
+                        <li>Debugging by recognizing common error patterns</li>
+                        <li>Optimizing algorithms by spotting recurring structures</li>
+                    </ul>
+                    
+                    <h3>Memory and Precision</h3>
+                    <p>Memorizing poems requires attention to detail and precision - every word matters. This skill translates directly to programming where a single misplaced character can break everything.</p>
+                    
+                    <h3>Expression and Communication</h3>
+                    <p>Both poetry and code are forms of expression. Poetry helps me communicate ideas more clearly, which is essential when:</p>
+                    
+                    <ul>
+                        <li>Writing clean, readable code</li>
+                        <li>Documenting projects</li>
+                        <li>Explaining technical concepts to others</li>
+                    </ul>
+                    
+                    <p>My advice? Don't abandon your creative pursuits for technical ones. They often complement each other in unexpected ways!</p>
+                </div>
+            </article>
+
+            <div class="content-card" style="text-align: center; margin-top: 3rem;">
+                <h3>More Posts Coming Soon! 📝</h3>
+                <p>I regularly update this exclusive blog with new content. Check back often for more insights, tutorials, and personal stories.</p>
+                <a href="profile.html" class="cta-button">Return to Profile</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Joyoshree Saha</p>
+        <a href="https://github.com/joyoshreesaha" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/joyoshree-saha-577683370" target="_blank">LinkedIn</a>
+    </footer>
+
+    <script>
+        // Check authentication and load user info
+        window.addEventListener('load', async function() {
+            try {
+                const response = await fetch('/api/auth-status');
+                const data = await response.json();
+                
+                if (!data.authenticated) {
+                    alert('Please login to access this page');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                // Display user name if available
+                if (data.userName) {
+                    document.getElementById('userName').textContent = data.userName;
+                }
+                
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            if (confirm('Are you sure you want to logout?')) {
+                try {
+                    const response = await fetch('/api/logout', {
+                        method: 'POST'
+                    });
+                    
+                    if (response.ok) {
+                        alert('Logged out successfully!');
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Error logging out');
+                    }
+                } catch (error) {
+                    alert('Network error during logout');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
