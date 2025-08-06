@@ -1,6 +1,6 @@
 # Joyoshree Saha - Portfolio with Authentication
 
-A modern, responsive portfolio website with user registration and login functionality. Users can register to access exclusive blog content and premium features.
+A modern, responsive portfolio website with user registration and login functionality built with PHP and MySQL. Users can register to access exclusive blog content and premium features.
 
 ## 🌟 Features
 
@@ -13,7 +13,7 @@ A modern, responsive portfolio website with user registration and login function
 
 ### Authentication Features
 - **User Registration**: Register with name, email, mobile, password, and optional profile picture
-- **Secure Login**: Email/password authentication with session management
+- **Secure Login**: Email/password authentication with PHP sessions
 - **Profile Page**: Personalized user dashboard with account information
 - **Protected Blog**: Exclusive blog content only accessible to registered users
 - **Session Management**: Secure session handling with automatic logout
@@ -21,43 +21,73 @@ A modern, responsive portfolio website with user registration and login function
 ## 🚀 Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Backend**: Node.js, Express.js
-- **Database**: SQLite
-- **Authentication**: bcryptjs for password hashing, express-session
-- **File Upload**: Multer for profile picture uploads
-- **Security**: Input validation, CORS protection
+- **Backend**: PHP 7.4+
+- **Database**: MySQL/MariaDB
+- **Authentication**: PHP password_hash() with bcrypt, PHP sessions
+- **File Upload**: PHP file upload for profile pictures
+- **Security**: Prepared statements, input validation, session security
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm (Node Package Manager)
+- PHP 7.4 or higher
+- MySQL/MariaDB database
+- Web server (Apache/Nginx) or XAMPP/WAMP for local development
 
-### Step 1: Install Dependencies
-```bash
-cd Portfolio
-npm install
+### Method 1: Local Development with XAMPP
+
+#### Step 1: Download and Install XAMPP
+- Go to: https://www.apachefriends.org/
+- Download XAMPP for Windows
+- Install with default settings
+
+#### Step 2: Start Services
+- Open XAMPP Control Panel
+- Start "Apache" and "MySQL" services
+- Both should show green "Running" status
+
+#### Step 3: Set Up Your Portfolio
+- Copy your entire Portfolio folder to: `C:\xampp\htdocs\`
+- Your folder structure should be: `C:\xampp\htdocs\Portfolio\`
+
+#### Step 4: Create Database
+- Open browser and go to: http://localhost/phpmyadmin/
+- Click "New" to create database
+- Name it: `portfolio_db`
+- Click "Create"
+- Click on your new database
+- Click "Import" tab
+- Choose file: `database.sql` (from your Portfolio folder)
+- Click "Go"
+
+#### Step 5: Test Your Website
+- Open browser and go to: http://localhost/Portfolio/
+- You should see your portfolio homepage
+- Click "Register" to test registration
+- Use demo login: demo@example.com / demo123
+### Method 2: Online Hosting
+
+#### Free Hosting Options:
+- **000webhost** (Recommended): https://www.000webhost.com/
+- **InfinityFree**: https://infinityfree.net/
+
+#### Paid Hosting (Better Performance):
+- Hostinger: $1.99/month
+- Bluehost: $2.95/month
+- SiteGround: $3.99/month
+
+### Configuration
+Update `config.php` with your database credentials:
+```php
+$host = 'localhost';
+$dbname = 'portfolio_db';
+$username = 'your_db_username';
+$password = 'your_db_password';
 ```
-
-### Step 2: Start the Server
-```bash
-npm start
-```
-
-For development with auto-restart:
-```bash
-npm run dev
-```
-
-### Step 3: Access the Application
-Open your browser and navigate to:
-- **Main Portfolio**: http://localhost:3000
-- **Registration**: http://localhost:3000/register
-- **Login**: http://localhost:3000/login
 
 ## 🔐 Demo Account
 
-For testing purposes, a demo account is automatically created:
+For testing purposes, a demo account is included:
 - **Email**: demo@example.com
 - **Password**: demo123
 
@@ -65,31 +95,36 @@ For testing purposes, a demo account is automatically created:
 
 ```
 Portfolio/
-├── server.js              # Main server file
-├── package.json           # Dependencies and scripts
-├── portfolio.db           # SQLite database (auto-created)
-├── uploads/               # User profile pictures (auto-created)
-├── index.html             # Homepage
-├── about.html             # About page
-├── projects.html          # Projects showcase
-├── contact.html           # Contact form
-├── blog.html              # Public blog page
-├── register.html          # User registration
-├── login.html             # User login
-├── profile.html           # User profile (protected)
-├── protected-blog.html    # Exclusive blog content (protected)
-├── styles.css             # Main stylesheet
-└── README.md              # This file
+├── config.php              # Database configuration
+├── database.sql            # Database schema and demo data
+├── uploads/                # User profile pictures (auto-created)
+├── index.html              # Homepage
+├── about.html              # About page
+├── projects.html           # Projects showcase
+├── contact.html            # Contact form
+├── blog.html               # Public blog page
+├── register.php            # User registration
+├── register_process.php    # Registration form handler
+├── login.php               # User login
+├── login_process.php       # Login form handler
+├── profile.php             # User profile (protected)
+├── blog_protected.php      # Exclusive blog content (protected)
+├── logout.php              # Logout handler
+├── styles.css              # Main stylesheet
+├── .htaccess               # Security configurations
+├── SETUP_GUIDE.md          # Detailed setup instructions
+├── README_SETUP.md         # Additional setup documentation
+└── README.md               # This file
 ```
 
 ## 🛡️ Security Features
 
-- **Password Hashing**: bcryptjs with salt rounds
-- **Session Security**: Secure session configuration
-- **Input Validation**: Client and server-side validation
-- **File Upload Security**: Type and size restrictions
-- **SQL Injection Protection**: Parameterized queries
-- **Authentication Middleware**: Protected routes
+- **Password Hashing**: PHP password_hash() with bcrypt
+- **Session Security**: Secure PHP session configuration
+- **Input Validation**: Server-side validation with PHP filters
+- **File Upload Security**: Image type and size restrictions
+- **SQL Injection Protection**: PDO prepared statements
+- **Authentication Middleware**: Protected routes with session checks
 
 ## 🎨 Design Features
 
@@ -103,47 +138,56 @@ Portfolio/
 ## 📱 Pages Overview
 
 ### Public Pages
-1. **Home** (`/`): Welcome page with hero section
-2. **Projects** (`/projects`): Showcase of personal projects
-3. **About** (`/about`): Skills, hobbies, and CV download
-4. **Contact** (`/contact`): Contact form and social links
-5. **Blog** (`/blog`): Public blog with registration CTA
+1. **Home** (`index.html`): Welcome page with hero section
+2. **Projects** (`projects.html`): Showcase of personal projects
+3. **About** (`about.html`): Skills, hobbies, and CV download
+4. **Contact** (`contact.html`): Contact form and social links
+5. **Blog** (`blog.html`): Public blog with registration CTA
 
 ### Authentication Pages
-6. **Register** (`/register`): User registration with image upload
-7. **Login** (`/login`): User authentication
+6. **Register** (`register.php`): User registration with image upload
+7. **Login** (`login.php`): User authentication
 
 ### Protected Pages (Login Required)
-8. **Profile** (`/profile`): User dashboard and account info
-9. **Protected Blog** (`/protected-blog`): Exclusive blog content
+8. **Profile** (`profile.php`): User dashboard and account info
+9. **Protected Blog** (`blog_protected.php`): Exclusive blog content
 
-## 🔧 API Endpoints
+## 🔧 PHP Files & Functions
 
-- `POST /api/register` - User registration
-- `POST /api/login` - User authentication
-- `POST /api/logout` - User logout
-- `GET /api/user` - Get current user info
-- `GET /api/auth-status` - Check authentication status
+- `config.php` - Database connection and session management
+- `register_process.php` - Handles user registration
+- `login_process.php` - Handles user authentication
+- `logout.php` - Handles user logout
+- `database.sql` - Database schema and initial data
 
 ## 🌐 Deployment
 
 For production deployment:
 
-1. Set environment variables:
-   ```bash
-   export NODE_ENV=production
-   export PORT=3000
-   ```
+1. **Upload files** to your web hosting account
+2. **Create MySQL database** and import `database.sql`
+3. **Update config.php** with hosting database credentials
+4. **Set folder permissions** for uploads directory (755)
+5. **Enable HTTPS** for production use
 
-2. Use HTTPS and update session configuration:
-   ```javascript
-   cookie: { 
-       secure: true,  // Enable for HTTPS
-       maxAge: 24 * 60 * 60 * 1000 
-   }
-   ```
+## 🐛 Troubleshooting
 
-3. Consider using a production database (PostgreSQL, MySQL)
+### Common Issues:
+
+**"Database connection failed"**
+- Check database credentials in config.php
+- Ensure database exists
+- Verify MySQL service is running
+
+**"File not found" errors**
+- Check file paths are correct
+- Ensure all files are uploaded
+- Verify folder permissions
+
+**Image upload not working**
+- Create 'uploads' folder
+- Set folder permissions to 755
+- Check PHP upload settings
 
 ## 📄 License
 
@@ -165,6 +209,8 @@ This is a personal portfolio project, but suggestions and feedback are welcome!
 
 If you have any questions or need help with the setup, feel free to contact me through the contact form or social media links.
 
+For detailed setup instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md)
+
 ---
 
-*Web Development Lab - CSE 312*
+*Modern Portfolio with PHP Authentication System*
