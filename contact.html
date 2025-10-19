@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact | Joyoshree Saha</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -17,29 +18,54 @@
             <a href="projects.html">Projects</a>
             <a href="about.html">About</a>
             <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
         </nav>
     </header>
+    
     <main>
-        <h2>Contact Me</h2>
-        <p> <a href="https://github.com/joyoshreesaha" target="_blank">GitHub</a> |
-            <a href="www.linkedin.com/in/joyoshree-saha-577683370" target="_blank">LinkedIn</a>
-        </p>
-        <form action="mailto:joyoshree@example.com" method="post" enctype="text/plain">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea><br>
-            <input type="submit" value="Send">
-        </form>
-        <p>Or email me directly: <a
-                href="mailto:20220654994joyoshree@juniv.edu.com">20220654994joyoshree@juniv.edu.com</a></p>
+        <div class="content-card">
+            <h1>Contact Me</h1>
+            <p>I'd love to hear from you! Feel free to reach out for collaborations, questions, or just to say hello.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/joyoshreesaha" target="_blank">🐙 GitHub</a>
+                <a href="https://www.linkedin.com/in/joyoshree-saha-577683370" target="_blank">💼 LinkedIn</a>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send me a message</h3>
+                <form action="mailto:20220654994joyoshree@juniv.edu.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px;">
+                <p><strong>Or email me directly:</strong></p>
+                <p><a href="mailto:20220654994joyoshree@juniv.edu.com" style="color: #3498db; font-weight: bold;">✉️ 20220654994joyoshree@juniv.edu.com</a></p>
+            </div>
     </main>
 
     <footer>
         <p>© 2023 Joyoshree Saha</p>
+        <a href="https://github.com/joyoshreesaha" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/joyoshree-saha-577683370" target="_blank">LinkedIn</a>
     </footer>
 
 </body>
